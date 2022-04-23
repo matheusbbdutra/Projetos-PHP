@@ -61,13 +61,14 @@ $imcTotal = situacaoImc($imc);
 
 <div class="mx-5 my-5">
     <ul class="list-group">
-        <li class="list-group-item"> <?php  if($peso == 0) {
+        <li class="list-group-item"> <?php
+            if($umPeso == 0) {
                 echo "Ainda não foi informado nenhum peso.";
             } else {
                 echo "Peso informado: $umPeso Kg";
 
             }?></li>
-        <li class="list-group-item"> <?php  if( $umaAltura ==0 ){
+        <li class="list-group-item"> <?php  if( $umaAltura == 0 ){
                 echo "Ainda não foi informado nenhuma altura.";
             } else {
                 echo "Altura informada: $umaAltura metros";
