@@ -1,37 +1,33 @@
 <?php
+    function situacaoImc($imcTotal)
+    {
+        if ($imcTotal < 18.5) {
+            return ". Você está abaixo do peso.";
+        }
 
+        if ($imcTotal > 18.5 and $imcTotal < 25) {
+            return ". Você está com o peso ideal.";
+        }
 
-function calculaImc($peso, $altura)
-{
-    $altura = str_replace(',', '.', $altura);
-    $imc = $peso / $altura ** 2;
-    return number_format($imc, 2);
-}
-
-function situacaoImc($imcTotal)
-{
-
-    if ($imcTotal < 18.5) {
-        return ". Você está abaixo do peso.";
+        return ". Você está acima do peso.";
     }
 
-    if ($imcTotal > 18.5 and $imcTotal < 25) {
-        return ". Você está com o peso ideal.";
+   function calculaImc($peso, $altura)
+    {
+        if($altura == 0){
+            return;
+        }
+        $altura = str_replace(',', '.', $altura);
+        $imc = $peso / ($altura * $altura);
+        return number_format($imc, 2);
     }
 
-    return ". Você está acima do peso.";
-
-}
-
-$umPeso = ($_POST['peso']);
+$umPeso = $_POST['peso'];
 $umaAltura = $_POST['altura'];
-
 
 $imc = calculaImc($umPeso, $umaAltura);
 
 $imcTotal = situacaoImc($imc);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +40,7 @@ $imcTotal = situacaoImc($imc);
     <title>Calculadora de IMC</title>
 </head>
 <body>
+<h1 align="center">Calculadora de IMC</h1>
 <div class="mx-5 my-5">
     <form method="post" action="calcula_imc.php">
 
@@ -64,11 +61,25 @@ $imcTotal = situacaoImc($imc);
 
 <div class="mx-5 my-5">
     <ul class="list-group">
-        <li class="list-group-item"> <?php echo "Peso informado: $umPeso Kg"?></li>
-        <li class="list-group-item"> <?php echo "Altura informada: $umaAltura metros"?></li>
-        <li class="list-group-item"> <?php echo "Seu IMC é $imc $imcTotal"; ?></li>
+        <li class="list-group-item"> <?php  if($peso == 0) {
+                echo "Ainda não foi informado nenhum peso.";
+            } else {
+                echo "Peso informado: $umPeso Kg";
+
+            }?></li>
+        <li class="list-group-item"> <?php  if( $umaAltura ==0 ){
+                echo "Ainda não foi informado nenhuma altura.";
+            } else {
+                echo "Altura informada: $umaAltura metros";
+            }?></li>
+        <li class="list-group-item"> <?php
+            if ($imc == 0){
+            echo "Ainda não foi informado nenhum peso.";
+            } else {
+                echo "Seu IMC é $imc $imcTotal";
+            } ?></li>
     </ul>
-</div>
+
 </body>
 
 </html>
