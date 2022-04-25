@@ -6,6 +6,11 @@ class ContaPoupanca extends Conta
 {
     public function depositar($valorDeposito)
     {
+        if($valorDeposito < 0)
+        {
+            echo "Valor de deposito não pode ser negativo.";
+            return;
+        }
         $this->saldo += $valorDeposito;
     }
 
@@ -13,6 +18,10 @@ class ContaPoupanca extends Conta
     {
         if($valorSacar > $this->saldo){
             echo "Valor a sacar não pode ser maior que o saldo." . "\n";
+            return;
+        }
+        if($valorSacar < 0){
+            echo "Valor a sacar não pode ser negativo.";
             return;
         }
         $this->saldo -= $valorSacar;

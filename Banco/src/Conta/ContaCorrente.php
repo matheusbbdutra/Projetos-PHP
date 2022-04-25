@@ -6,14 +6,26 @@ class ContaCorrente extends Conta
 {
     public function depositar($valorDeposito)
     {
+        if($valorDeposito < 0)
+        {
+            echo "Valor de deposito não pode ser negativo.";
+            return;
+        }
         $this->saldo += $valorDeposito;
     }
 
     public function sacar($valorSacar)
     {
+
         if($valorSacar > $this->saldo){
-            echo "Valor a sacaranão pode ser maior que o saldo";
+            echo "Valor a sacar não pode ser maior que o saldo";
+            return;
         }
+        if($valorSacar < 0){
+            echo "Valor a sacar não pode ser negativo.";
+            return;
+        }
+
         $this->saldo -= $valorSacar;
     }
 
