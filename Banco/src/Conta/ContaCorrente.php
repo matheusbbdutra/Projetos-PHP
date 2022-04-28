@@ -8,8 +8,7 @@ class ContaCorrente extends Conta
     {
         if($valorDeposito < 0)
         {
-            echo "Valor de deposito não pode ser negativo.";
-            return;
+            throw new ValorNegativoException($valorDeposito);
         }
         $this->saldo += $valorDeposito;
     }
@@ -18,12 +17,10 @@ class ContaCorrente extends Conta
     {
 
         if($valorSacar > $this->saldo){
-            echo "Valor a sacar não pode ser maior que o saldo";
-            return;
+            throw new SaldoInsuficienteException($valorSacar, $this->saldo);
         }
         if($valorSacar < 0){
-            echo "Valor a sacar não pode ser negativo.";
-            return;
+            throw new ValorNegativoException($valorSacar);
         }
 
         $this->saldo -= $valorSacar;
@@ -32,8 +29,7 @@ class ContaCorrente extends Conta
     public function transferir($tipoTransferencia, $valorTransferir,$contaDestino)
     {
         if($this->saldo < $valorTransferir){
-            echo "Valor de transferencia não pode ser maior que o saldo." .  "\n";
-            return;
+            throw new ValorNegativoException($valorTransferir);
         }
 
         if ($tipoTransferencia == 'ted'){

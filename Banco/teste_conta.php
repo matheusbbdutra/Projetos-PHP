@@ -33,7 +33,7 @@ $maria->transferir('ted',500,$joao);
 var_dump($maria);
 
 
-$joao->sacar(-1000);
+$joao->sacar(11000);
 
 var_dump($joao);
 

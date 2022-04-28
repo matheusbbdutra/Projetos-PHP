@@ -8,8 +8,7 @@ class ContaPoupanca extends Conta
     {
         if($valorDeposito < 0)
         {
-            echo "Valor de deposito não pode ser negativo.";
-            return;
+            throw new ValorNegativoException($valorDeposito);
         }
         $this->saldo += $valorDeposito;
     }
@@ -17,12 +16,10 @@ class ContaPoupanca extends Conta
     public function sacar($valorSacar)
     {
         if($valorSacar > $this->saldo){
-            echo "Valor a sacar não pode ser maior que o saldo." . "\n";
-            return;
+            throw new SaldoInsuficienteException($valorSacar, $this->saldo);
         }
         if($valorSacar < 0){
-            echo "Valor a sacar não pode ser negativo.";
-            return;
+            throw new ValorNegativoException($valorSacar);
         }
         $this->saldo -= $valorSacar;
     }
@@ -30,8 +27,7 @@ class ContaPoupanca extends Conta
     public function transferir($tipoTransferencia, $valorTransferir, $contaDestino)
     {
         if($this->saldo < $valorTransferir){
-            echo "Valor de transferencia não pode ser maior que o saldo";
-            return;
+            throw new ValorNegativoException($valorTransferir);
         }
         $this->sacar($valorTransferir);
         $contaDestino->depositar($valorTransferir);
