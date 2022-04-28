@@ -13,7 +13,9 @@ var_dump($umaConta);
 
 $segundaConta = new ContaCorrente('0001','00003');
 
-$umaConta->transferir('pix',250.00,$segundaConta);
+$umaConta->transferir('pix',2500.00,$segundaConta);
+
+var_dump($umaConta);
 
 $segundaConta->depositar(500.00);
 
@@ -36,4 +38,3 @@ var_dump($maria);
 $joao->sacar(11000);
 
 var_dump($joao);
-

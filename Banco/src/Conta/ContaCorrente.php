@@ -6,9 +6,9 @@ class ContaCorrente extends Conta
 {
     public function depositar($valorDeposito)
     {
-        if($valorDeposito < 0)
+        if($valorDeposito < 0.0)
         {
-            throw new ValorNegativoException($valorDeposito);
+            throw new \InvalidArgumentException("Você tentou depositar $valorDeposito, mas o valor de deposito não pode ser negativo.");
         }
         $this->saldo += $valorDeposito;
     }
@@ -17,10 +17,12 @@ class ContaCorrente extends Conta
     {
 
         if($valorSacar > $this->saldo){
-            throw new SaldoInsuficienteException($valorSacar, $this->saldo);
+            echo "Valor a sacar não pode ser maior que o saldo";
+            return;
         }
         if($valorSacar < 0){
-            throw new ValorNegativoException($valorSacar);
+            echo "Valor a sacar não pode ser negativo.";
+            return;
         }
 
         $this->saldo -= $valorSacar;
@@ -29,7 +31,7 @@ class ContaCorrente extends Conta
     public function transferir($tipoTransferencia, $valorTransferir,$contaDestino)
     {
         if($this->saldo < $valorTransferir){
-            throw new ValorNegativoException($valorTransferir);
+            throw new \InvalidArgumentException("Você tentou depositar $valorTransferir, mas você possui apenas $this->saldo de saldo.");
         }
 
         if ($tipoTransferencia == 'ted'){

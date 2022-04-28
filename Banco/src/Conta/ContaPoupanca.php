@@ -8,7 +8,8 @@ class ContaPoupanca extends Conta
     {
         if($valorDeposito < 0)
         {
-            throw new ValorNegativoException($valorDeposito);
+            throw new \InvalidArgumentException("Você tentou depositar $valorDeposito, mas o valor de deposito não pode ser negativo.");
+
         }
         $this->saldo += $valorDeposito;
     }
@@ -19,7 +20,8 @@ class ContaPoupanca extends Conta
             throw new SaldoInsuficienteException($valorSacar, $this->saldo);
         }
         if($valorSacar < 0){
-            throw new ValorNegativoException($valorSacar);
+            throw new \InvalidArgumentException("Você tentou depositar $valorSacar, mas o valor de saque não pode ser negativo.");
+
         }
         $this->saldo -= $valorSacar;
     }
@@ -27,7 +29,8 @@ class ContaPoupanca extends Conta
     public function transferir($tipoTransferencia, $valorTransferir, $contaDestino)
     {
         if($this->saldo < $valorTransferir){
-            throw new ValorNegativoException($valorTransferir);
+            throw new \InvalidArgumentException("Você tentou depositar $valorTransferir, mas você possui apenas $this->saldo de saldo.");
+
         }
         $this->sacar($valorTransferir);
         $contaDestino->depositar($valorTransferir);
