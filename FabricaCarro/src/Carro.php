@@ -24,53 +24,39 @@ class Carro
         $this->potenciaMotor = $potenciaMotor;
     }
 
-    /**
-     * @return string
-     */
     public function getModelo(): string
     {
         return $this->modelo;
     }
 
-    /**
-     * @return string
-     */
     public function getNomeCarro(): string
     {
         return $this->nomeCarro;
     }
 
-    /**
-     * @return string
-     */
     public function getTipoCobustivel(): string
     {
         return $this->tipoCobustivel;
     }
 
-    /**
-     * @return string
-     */
     public function getTipoCambio(): string
     {
         return $this->tipoCambio;
     }
 
-    /**
-     * @return string
-     */
     public function getCor(): string
     {
         return $this->cor;
     }
 
-    /**
-     * @return float
-     */
     public function getPotenciaMotor(): float
     {
         return $this->potenciaMotor;
     }
 
+    public function getMarca(): string
+    {
+        return $this->marca;
+    }
 
 }
