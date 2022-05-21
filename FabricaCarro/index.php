@@ -8,16 +8,16 @@ use Fabrica\Carro;
 
 
 
-$civic = new Fabrica(
-        new Carro (
-            'Civic',
-            'Flex',
-            'Automatico',
-            'Preto',
-            2.0
-        ),
-        'Honda',
-        80000.00
+$civic = new Fabrica (
+            new Carro (
+                'Civic',
+                'Flex',
+                'Automatico',
+                'Preto',
+                2.0
+            ),
+            'Honda',
+            80000.00
 );
 
 var_dump($civic);
