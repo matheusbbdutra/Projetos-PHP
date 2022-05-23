@@ -32,8 +32,4 @@ class Fabrica extends carro
         return $this->valor;
     }
 
-    public function array()
-    {
-        
-    }
 }
