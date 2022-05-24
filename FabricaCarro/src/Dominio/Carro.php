@@ -4,11 +4,11 @@ namespace Fabrica;
 
 class Carro
 {
-    protected string $modelo;
-    protected string $tipoCobustivel;
-    protected string $tipoCambio;
-    protected string $cor;
-    protected float $potenciaMotor;
+    private string $modelo;
+    private string $tipoCobustivel;
+    private string $tipoCambio;
+    private string $cor;
+    private float $potenciaMotor;
 
     public function __construct(
        string $modelo,

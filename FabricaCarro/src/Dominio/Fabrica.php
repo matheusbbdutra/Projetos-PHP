@@ -2,34 +2,29 @@
 
 namespace Fabrica;
 
-class Fabrica extends carro
+
+class Fabrica
 {
-    protected $carro;
-    protected string $marca;
-    protected float $valor;
+    protected array $patio;
 
-    public function __construct(Carro $carro, string $marca, float $valor)
+    public function __construct()
     {
-        $this->carro = $carro;
-        $this->marca = $marca;
-        $this->valor = $valor;
-    }
-    
-    public function getCarro(): Carro
-    {
-        return $this->carro;
+        $this->patio = [];
     }
 
-    
-    public function getMarca(): string
+    public function addCarro(Carro $carro)
     {
-        return $this->marca;
+        $this->patio[] = $carro;
     }
 
-    
-    public function getValor(): float
+    public function recuperaPatio(array $patio)
     {
-        return $this->valor;
+        list($patio)
+        foreach ($patio as $key => $values){
+            echo $key . $values;
+        }
     }
+
+
 
 }

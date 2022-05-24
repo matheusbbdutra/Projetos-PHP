@@ -1,23 +1,32 @@
 <?php
 
-require_once 'src/Carro.php';
-require_once 'src/Fabrica.php';
+require_once 'src/Dominio/Carro.php';
+require_once 'src/Dominio/Fabrica.php';
 
 use Fabrica\Fabrica;
 use Fabrica\Carro;
 
-
-
-$civic = new Fabrica (
-            new Carro (
-                'Civic',
-                'Flex',
-                'Automatico',
-                'Preto',
-                2.0
-            ),
-            'Honda',
-            80000.00
+$fabricarCarro = new Fabrica ();
+$civic = new Carro(
+    'Civic',
+    'Flex',
+    'Automatico',
+    'Preto',
+    2.0
 );
 
-var_dump($civic);
+$fit = new Carro(
+    'Fit',
+    'Flex',
+    'Automatico',
+    'Preto',
+    1.0
+);
+
+$fabricarCarro->addCarro($civic);
+$fabricarCarro->addCarro($fit);
+
+$fabricarCarro->recuperaPatio($fabricarCarro);
+
+
+
