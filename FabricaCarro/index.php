@@ -26,7 +26,9 @@ $fit = new Carro(
 $fabricarCarro->addCarro($civic);
 $fabricarCarro->addCarro($fit);
 
-$fabricarCarro->recuperaPatio($fabricarCarro);
+
+
+$fabricarCarro->recuperaPatio();
 
 
 
