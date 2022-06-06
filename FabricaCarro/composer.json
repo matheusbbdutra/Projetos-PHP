@@ -1,0 +1,15 @@
+{
+    "name": "mathe/fabrica-carro",
+    "autoload": {
+        "psr-4": {
+            "Mathe\\FabricaCarro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matheus Dutra",
+            "email": "88410058+matheusbbdutra@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,64 +1,113 @@
 <?php
 
-namespace Fabrica;
+namespace Fabrica\Carros;
 
-class Carro
+abstract class Carro
 {
-    private string $modelo;
-    private string $tipoCobustivel;
-    private string $tipoCambio;
-    private string $cor;
-    private float $potenciaMotor;
+    protected string $modelo;
+    protected string $tipoCombustivel;
+    protected string $tipoCambio;
+    protected string $cor;
+    protected string $motor;
+    protected float $valor;
 
-    public function __construct(
-       string $modelo,
-       string $tipoCobustivel,
-       string $tipoCambio,
-       string $cor,
-       float $potenciaMotor
-    ) {
-        $this->modelo = $modelo;
-        $this->tipoCobustivel = $tipoCobustivel;
-        $this->tipoCambio = $tipoCambio;
-        $this->cor = $cor;
-        $this->potenciaMotor = $potenciaMotor;
+    /**
+     * @return float
+     */
+    public function getValor(): float
+    {
+        return $this->valor;
     }
-
-
-
+    /**
+     * @return string
+     */
     public function getModelo(): string
     {
         return $this->modelo;
     }
 
-    public function getNomeCarro(): string
+    /**
+     * @param string $modelo
+     * @return Carro
+     */
+    public function setModelo(string $modelo): Carro
     {
-        return $this->nomeCarro;
+        $this->modelo = $modelo;
+        return $this;
     }
 
-    public function getTipoCobustivel(): string
+    /**
+     * @return string
+     */
+    public function getTipoCombustivel(): string
     {
-        return $this->tipoCobustivel;
+        return $this->tipoCombustivel;
     }
 
+    /**
+     * @param string $tipoCombustivel
+     * @return Carro
+     */
+    public function setTipoCombustivel(string $tipoCombustivel): Carro
+    {
+        $this->tipoCombustivel = $tipoCombustivel;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getTipoCambio(): string
     {
         return $this->tipoCambio;
     }
 
+    /**
+     * @param string $tipoCambio
+     * @return Carro
+     */
+    public function setTipoCambio(string $tipoCambio): Carro
+    {
+        $this->tipoCambio = $tipoCambio;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getCor(): string
     {
         return $this->cor;
     }
 
-    public function getPotenciaMotor(): float
+    /**
+     * @param string $cor
+     * @return Carro
+     */
+    public function setCor(string $cor): Carro
     {
-        return $this->potenciaMotor;
+        $this->cor = $cor;
+        return $this;
     }
 
-    public function getMarca(): string
+    /**
+     * @return string
+     */
+    public function getMotor(): string
     {
-        return $this->marca;
+        return $this->motor;
     }
+
+    /**
+     * @param string $motor
+     * @return Carro
+     */
+    public function setMotor(string $motor): Carro
+    {
+        $this->motor = $motor;
+        return $this;
+    }
+
+
 
 }
