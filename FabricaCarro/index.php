@@ -1,34 +1,25 @@
 <?php
 
+
 require_once 'src/Dominio/Carro.php';
 require_once 'src/Dominio/Fabrica.php';
+require_once 'src/Dominio/Civic.php';
+require_once 'src/Dominio/Fit.php';
 
+
+
+
+use Fabrica\Carros\Fit;
+use Fabrica\Carros\Civic;
 use Fabrica\Fabrica;
-use Fabrica\Carro;
 
-$fabricarCarro = new Fabrica ();
-$civic = new Carro(
-    'Civic',
-    'Flex',
-    'Automatico',
-    'Preto',
-    2.0
-);
+$carr = new Civic('Branco');
+$carr1 = new Fit('Preto');
 
-$fit = new Carro(
-    'Fit',
-    'Flex',
-    'Automatico',
-    'Preto',
-    1.0
-);
+$fabricado = new Fabrica();
 
-$fabricarCarro->addCarro($civic);
-$fabricarCarro->addCarro($fit);
+$fabricado->addCarro($carr);
+$fabricado->addCarro($carr1);
 
 
-
-$fabricarCarro->recuperaPatio();
-
-
-
+$fabricado->escolheCarro('Civic');
