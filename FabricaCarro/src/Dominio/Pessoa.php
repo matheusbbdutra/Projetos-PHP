@@ -8,9 +8,7 @@ use Fabrica\Carro\Carro;
 class Pessoa
 {
     private string $nome;
-
-
-    private float $salario;
+    private float $saldo;
     private Carro $carro;
 
 
@@ -20,25 +18,25 @@ class Pessoa
     }
 
 
-    public function __construct(string $nome,float $salario)
+    public function __construct(string $nome,float $saldo)
     {
         $this->nome = $nome;
-        $this->salario = $salario;
+        $this->saldo = $saldo;
     }
 
     public function getSalario(): float
     {
-        return $this->salario;
+        return $this->saldo;
     }
 
     public function sacar(float $valorASacara)
     {
-        $this->salario -= $valorASacara;
+        $this->saldo -= $valorASacara;
     }
 
-    public function setSalario(float $salario)
+    public function setSalario(float $saldo)
     {
-        $this->salario = $salario;
+        $this->saldo = $saldo;
         return $this;
     }
 
