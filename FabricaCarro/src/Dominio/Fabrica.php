@@ -45,8 +45,6 @@ class Fabrica
                 $pessoa->sacar($valorCarro);
                 $pessoa->setCarro($carro);
                 unset($this->patio[$id]);
-
-                print_r($pessoa);
             }
         }
 

@@ -28,5 +28,7 @@ $fabricado->addCarro($carr1);
 
 $fabricado->compraCarro($pessoa,'Civic');
 
+print_r($pessoa);
+
 
 
