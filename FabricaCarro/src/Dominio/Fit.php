@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabrica\Carros;
+namespace Fabrica\Carro;
 
 class Fit extends Carro
 {

@@ -2,20 +2,21 @@
 
 namespace Fabrica;
 
-use Fabrica\Carros\Carro;
+use Fabrica\Carro\Carro;
+use Fabrica\Fabrica;
+
 
 class Pessoa
 {
     protected string $nome;
     protected string $salario;
-    protected array $carro;
+    protected Carro $carro;
 
 
     public function __construct(string $nome,string $salario)
     {
         $this->nome = $nome;
         $this->salario = $salario;
-        $this->carro = [];
     }
 
     public function getSalario(): string
@@ -24,24 +25,16 @@ class Pessoa
     }
 
 
-    public function setSalario(string $salario): Pessoa
+    public function setSalario(string $salario)
     {
         $this->salario = $salario;
         return $this;
     }
 
 
-    public function compraCarro($carro)
+    public function setCarro($modelo)
     {
-        $this->carro = $carro;
+        $this->carro = $modelo;
     }
-
-
-
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
-
 
 }

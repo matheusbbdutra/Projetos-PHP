@@ -2,12 +2,11 @@
 
 namespace Fabrica;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Fabrica\Pessoa;
 
 class Fabrica
 {
-    protected array $patio;
+    private array $patio;
 
     public function __construct()
     {
@@ -31,24 +30,22 @@ class Fabrica
 
     }
 
-    //Retorna a chave do array do modelo escolhido
-    public function escolheCarro(string $modelo)
+    public function removeCarro(Pessoa $pessoa, string $modelo)
     {
-        $values = $this->patio;
-        foreach ($values as $key => $value){
-            $vl = $value->getModelo();
-            if($vl === $modelo ){
-               $key_filter = $key;
+
+        foreach ($this->patio as $id => $carro){
+
+
+
+            $escolhido = $carro->getModelo();
+
+
+            if($escolhido === $modelo ){
+               $pessoa->setCarro($carro);
+               unset($this->patio[$id]);
             }
         }
-        $carro = $values[$key_filter];
-
-        $carro->compraCarro($carro);
-
     }
-
-
-
 
 
 }

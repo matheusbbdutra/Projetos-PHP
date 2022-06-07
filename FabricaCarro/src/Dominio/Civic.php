@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabrica\Carros;
+namespace Fabrica\Carro;
 
 class Civic extends Carro
 {
@@ -12,6 +12,5 @@ class Civic extends Carro
         $this->cor = $cor;
         $this->motor = '2.0';
         $this->valor = 50000.00;
-
     }
 }
