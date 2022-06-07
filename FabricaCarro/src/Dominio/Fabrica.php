@@ -2,8 +2,6 @@
 
 namespace Fabrica;
 
-use Fabrica\Pessoa;
-
 class Fabrica
 {
     private array $patio;
@@ -30,21 +28,28 @@ class Fabrica
 
     }
 
-    public function removeCarro(Pessoa $pessoa, string $modelo)
+    public function compraCarro(Pessoa $pessoa, string $modelo)
     {
 
         foreach ($this->patio as $id => $carro){
-
-
-
             $escolhido = $carro->getModelo();
+            $valorCarro = $carro->getValor();
 
+            if($escolhido === $modelo ) {
 
-            if($escolhido === $modelo ){
-               $pessoa->setCarro($carro);
-               unset($this->patio[$id]);
+                if($pessoa->getSalario() <= $valorCarro){
+                    throw new \InvalidArgumentException(
+                        "Você não pode comprar esse carro, pois o valor do carro é de $valorCarro e seu saldo é {$pessoa->getSalario()};.");
+                }
+
+                $pessoa->sacar($valorCarro);
+                $pessoa->setCarro($carro);
+                unset($this->patio[$id]);
+
+                print_r($pessoa);
             }
         }
+
     }
 
 
