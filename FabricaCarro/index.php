@@ -18,7 +18,7 @@ $carr = new Civic('Branco');
 $carr1 = new Fit('Preto');
 
 $fabricado = new Fabrica();
-$pessoa = new Pessoa('Matheus Dutra','15000');
+$pessoa = new Pessoa('Matheus Dutra',60000.00);
 
 
 $fabricado->addCarro($carr);
@@ -26,14 +26,7 @@ $fabricado->addCarro($carr1);
 
 
 
-$fabricado->removeCarro($pessoa,'Civic');
-
-$array = [1,2,3];
-
-for($i = 0; $i <= count($array); $i++){
-    echo $array[$i];
-    //echo $i;
-}
+$fabricado->compraCarro($pessoa,'Civic');
 
 
 
