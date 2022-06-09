@@ -1,14 +1,14 @@
 {
-    "name": "mathe/fabrica-carro",
+    "name": "matheusmelo/feirao-carro",
     "autoload": {
         "psr-4": {
-            "Mathe\\FabricaCarro\\": "src/"
+            "Feirao\\": "src/"
         }
     },
     "authors": [
         {
             "name": "Matheus Dutra",
-            "email": "88410058+matheusbbdutra@users.noreply.github.com"
+            "email": "matheusbbdutra@gmail.com"
         }
     ],
     "require": {}

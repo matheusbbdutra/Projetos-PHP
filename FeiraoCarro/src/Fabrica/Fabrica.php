@@ -1,6 +1,8 @@
 <?php
 
-namespace Fabrica;
+namespace Feirao\Fabrica;
+
+use Feirao\Pessoa\Pessoa;
 
 class Fabrica
 {
@@ -38,8 +40,7 @@ class Fabrica
             if($escolhido === $modelo ) {
 
                 if($pessoa->getSalario() < $valorCarro){
-                    throw new \InvalidArgumentException(
-                        "Você não pode comprar esse carro, pois o valor do carro é de $valorCarro e seu saldo é {$pessoa->getSalario()};.");
+                    throw new \InvalidArgumentException("Você não pode comprar esse carro, pois o valor do carro é de $valorCarro e seu saldo é {$pessoa->getSalario()};.");
                 }
 
                 $pessoa->sacar($valorCarro);

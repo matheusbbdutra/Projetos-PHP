@@ -1,9 +1,8 @@
 <?php
 
-namespace Fabrica;
+namespace Feirao\Pessoa;
 
-use Fabrica\Carro\Carro;
-
+use Feirao\ModeloCarro\Carro;
 
 class Pessoa
 {
