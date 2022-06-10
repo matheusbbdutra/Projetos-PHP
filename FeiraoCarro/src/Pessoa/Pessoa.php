@@ -2,43 +2,24 @@
 
 namespace Feirao\Pessoa;
 
+use Feirao\Conta\Conta;
 use Feirao\ModeloCarro\Carro;
 
 class Pessoa
 {
+    private string $cpfCnpj;
     private string $nome;
-    private float $saldo;
+    private Conta $conta;
+
+
     private Carro $carro;
 
 
-    public function getCarro(): Carro
+    public function __construct(string $cpfCnpj, string $nome)
     {
-        return $this->carro;
-    }
-
-
-    public function __construct(string $nome,float $saldo)
-    {
+        $this->cpfCnpj = $cpfCnpj;
         $this->nome = $nome;
-        $this->saldo = $saldo;
     }
-
-    public function getSalario(): float
-    {
-        return $this->saldo;
-    }
-
-    public function sacar(float $valorASacara)
-    {
-        $this->saldo -= $valorASacara;
-    }
-
-    public function setSalario(float $saldo)
-    {
-        $this->saldo = $saldo;
-        return $this;
-    }
-
 
     public function setCarro($modelo)
     {
@@ -49,4 +30,17 @@ class Pessoa
     {
         return $this->nome;
     }
+
+
+    public function getConta(): Conta
+    {
+        return $this->conta;
+    }
+
+    public function setConta(Conta $conta): Pessoa
+    {
+        $this->conta = $conta;
+        return $this;
+    }
+
 }
