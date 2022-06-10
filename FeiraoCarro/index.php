@@ -18,12 +18,12 @@ $carr1 = new Fit('Preto');
 $pj = new Pessoa ('154211516254', 'Auto Show LTDA');
 $contaPj = new Conta('0002','021465');
 $pj->setConta($contaPj);
-
 $fabricado = new Fabrica($pj);
+
 $pessoa = new Pessoa('11317104447','Matheus Dutra');
 $conta = new Conta('0001','031474');
-
 $pessoa->setConta($conta);
+
 
 $conta->depositar(60000.00);
 
