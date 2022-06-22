@@ -1,6 +1,6 @@
 <?php
 
-namespace Feirao\ModeloCarro;
+namespace Feirao\Model\ModeloCarro;
 
 class Carro
 {

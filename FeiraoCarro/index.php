@@ -4,11 +4,11 @@
 require_once 'vendor/autoload.php';
 
 
-use Feirao\Conta\Conta;
-use Feirao\ModeloCarro\Fit;
-use Feirao\ModeloCarro\Civic;
-use Feirao\Fabrica\Fabrica;
-use Feirao\Pessoa\Pessoa;
+use Feirao\Model\Conta\Conta;
+use Feirao\Model\ModeloCarro\Fit;
+use Feirao\Model\ModeloCarro\Civic;
+use Feirao\Model\Fabrica\Fabrica;
+use Feirao\Model\Pessoa\Pessoa;
 
 $carr = new Civic('Branco');
 $carr1 = new Fit('Preto');
@@ -34,7 +34,7 @@ $fabricado->addCarro($carr1);
 
 $fabricado->compraCarro($pessoa,'Civic',$pj);
 
-print_r($pessoa) . "\n\n\n";
+//print_r($pessoa) . "\n\n\n";
 
 print_r($fabricado);
 

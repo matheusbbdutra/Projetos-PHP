@@ -1,17 +1,15 @@
 <?php
 
-namespace Feirao\Pessoa;
+namespace Feirao\Model\Pessoa;
 
-use Feirao\Conta\Conta;
-use Feirao\ModeloCarro\Carro;
+use Feirao\Model\Conta\Conta;
+use Feirao\Model\ModeloCarro\Carro;
 
 class Pessoa
 {
     private string $cpfCnpj;
     private string $nome;
     private Conta $conta;
-
-
     private Carro $carro;
 
 

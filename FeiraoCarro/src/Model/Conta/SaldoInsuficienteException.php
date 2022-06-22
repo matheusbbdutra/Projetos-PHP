@@ -1,6 +1,6 @@
 <?php
 
-namespace Feirao\Conta;
+namespace Feirao\Model\Conta;
 
 class SaldoInsuficienteException extends \DomainException
 {

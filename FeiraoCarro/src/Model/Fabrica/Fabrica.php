@@ -1,9 +1,10 @@
 <?php
 
-namespace Feirao\Fabrica;
+namespace Feirao\Model\Fabrica;
 
-use Feirao\Conta\Conta;
-use Feirao\Pessoa\Pessoa;
+
+use Feirao\Model\Pessoa\Pessoa;
+use Feirao\Service\Fabrica\EscolheCarro;
 
 class Fabrica
 {
@@ -42,18 +43,7 @@ class Fabrica
 
     public function compraCarro(Pessoa $pessoa, string $modelo, Pessoa $pj) : void
     {
-        foreach ($this->patio as $id => $carro){
-            $escolhido = $carro->getModelo();
-            $valorCarro = $carro->getValor();
-
-            if($escolhido === $modelo ) {
-                if($pessoa->getConta()->getSaldo() < $valorCarro){
-                    throw new \InvalidArgumentException("Você não pode comprar esse carro, pois o valor do carro é de $valorCarro e seu saldo é {$conta->getSaldo()};.");
-                }
-                $pessoa->getConta()->transferir($valorCarro,$pj->getConta());
-                $pessoa->setCarro($carro);
-                unset($this->patio[$id]);
-            }
-        }
+        $iniciandoCompra = new EscolheCarro();
+        $iniciandoCompra->comprandoCarro($this->patio, $pessoa, $modelo, $pj);
     }
 }
