@@ -10,6 +10,7 @@ class Fabrica
 {
     private Pessoa $pessoaJuridica;
     private array $patio;
+    private EscolheCarro $escolheCarro;
 
 
     public function getPessoaJuridica(): Pessoa
@@ -22,6 +23,7 @@ class Fabrica
     {
         $this->pessoaJuridica = $pessoaJuridica;
         $this->patio = [];
+        $this->escolheCarro = new EscolheCarro();
     }
 
     public function addCarro($carro)
@@ -43,7 +45,6 @@ class Fabrica
 
     public function compraCarro(Pessoa $pessoa, string $modelo, Pessoa $pj) : void
     {
-        $iniciandoCompra = new EscolheCarro();
-        $iniciandoCompra->comprandoCarro($this->patio, $pessoa, $modelo, $pj);
+         $this->escolheCarro->comprandoCarro($this->patio, $pessoa, $modelo, $pj);
     }
 }

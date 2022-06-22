@@ -2,15 +2,15 @@
 
 namespace Feirao\Model\Conta;
 
-use Feirao\Service\Conta\SistemaDeposito;
-use Feirao\Service\Conta\SistemaSaque;
-use Feirao\Service\Conta\SistemaTransferencia;
+use Feirao\Validator\ContaValidator;
 
 class Conta
 {
     private $agencia;
     private $conta;
     private $saldo;
+    private ContaValidator $contaValidator;
+
 
     public function __construct(
         string $agencia,
@@ -19,6 +19,7 @@ class Conta
         $this->agencia = $agencia;
         $this->conta = $conta;
         $this->saldo = 0;
+        $this->contaValidator = new ContaValidator();
     }
 
     public function recuperaSaldo()
@@ -29,24 +30,21 @@ class Conta
 
     public function  depositar(float $valorDeposito)
     {
-        $deposita = new SistemaDeposito();
-        $aDepositar = $deposita->deposito($valorDeposito);
-        $this->saldo += $aDepositar;
+        $this->contaValidator->validaDeposito($valorDeposito);
+        $this->saldo += $valorDeposito;
     }
 
     public function sacar(float $valorSaque)
     {
-        $sacando = new SistemaSaque();
-        $aSacar = $sacando->saque($this->saldo,$valorSaque);
-        $this->saldo -= $aSacar;
+        $this->contaValidator->validaSaque($this->saldo,$valorSaque);
+        $this->saldo -= $valorSaque;
     }
 
     public function transferir(float $valorATransferir, Conta $contaDestino)
     {
-        $transferindo = new SistemaTransferencia();
-        $valorTranferir = $transferindo->transferir($valorATransferir,$this->saldo);
-        $this->sacar($valorTranferir);
-        $contaDestino->depositar($valorTranferir);
+        $this->contaValidator->validaTransferencia($valorATransferir,$this->saldo);
+        $this->sacar($valorATransferir);
+        $contaDestino->depositar($valorATransferir);
     }
 
 
