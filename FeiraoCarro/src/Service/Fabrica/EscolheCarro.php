@@ -7,7 +7,7 @@ use Feirao\Model\Conta;
 
 class EscolheCarro
 {
-    public function comprandoCarro(array $patio,Pessoa $pessoa, string $modelo, Pessoa $pj)
+    public function comprandoCarro(array &$patio,Pessoa $pessoa, string $modelo, Pessoa $pj)
     {
         foreach ($patio as $id => $carro){
             $escolhido = $carro->getModelo();
