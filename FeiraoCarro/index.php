@@ -1,6 +1,5 @@
 <?php
 
-
 require_once 'vendor/autoload.php';
 use Feirao\Model\Conta\Conta;
 use Feirao\Model\ModeloCarro\Fit;
